@@ -12,6 +12,6 @@ router.get("/:id", verifyToken, getUser);
 
 router.get("/:id/friends", verifyToken, getUserFriends);
 
-router.patch("/:id/:friends", verifyToken, addRemoveFriend);
+router.patch("/:id/:friends", verifyToken, addRemoveFriend); // not checked
 
 export default router;

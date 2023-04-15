@@ -16,6 +16,9 @@ import postRoutes from "./routes/posts.js";
 import { register } from "./controllers/auth.js";
 import { createPost } from "./controllers/posts.js";
 import { verifyToken } from "./middleware/auth.js";
+import User from "./models/User.js";
+import Post from "./models/Post.js";
+import { posts, users } from "./Data/index.js";
 
 /* CONFIGURATION */
 const __filename = fileURLToPath(import.meta.url);
@@ -60,6 +63,10 @@ mongoose
   })
   .then(() => {
     app.listen(PORT, () => console.log(`Blinks are on port: ${PORT}`));
+
+    /* ADD DATA ONCE */
+    // User.insertMany(users);
+    // Post.insertMany(posts);
   })
   .catch((error) => {
     console.log(`${error} did not connect`.bgRed);
